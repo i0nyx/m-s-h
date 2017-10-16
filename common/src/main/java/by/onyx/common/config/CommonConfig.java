@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -19,6 +20,7 @@ import java.util.Properties;
 @EnableTransactionManagement (proxyTargetClass = true)
 @PropertySource("classpath:app.properties")
 @ComponentScan("by.onyx.common")
+@EnableJpaRepositories("by.onyx.common.repositories")
 public class CommonConfig {
     private static final String PR_NM_HIBERNATE_DIALECT = "hibernate.dialect";
     private static final String PR_NM_HIBERNATE_SHOW_SQL = "hibernate.show_sql";

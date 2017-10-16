@@ -6,6 +6,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
@@ -13,7 +15,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @Import(CommonConfig.class)
 @EnableWebMvc
 @ComponentScan("by.onyx.web")
-public class WebConfig {
+public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     public UrlBasedViewResolver setupViewResolver() {
@@ -25,6 +27,11 @@ public class WebConfig {
         resolver.setViewClass(JstlView.class);
 
         return resolver;
+    }
+
+    @Override
+    public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 
 }

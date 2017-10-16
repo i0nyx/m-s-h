@@ -29,4 +29,22 @@
     <build>
         <finalName>ROOT</finalName>
     </build>
+
+    <profiles>
+        <profile>
+            <id>without_resources</id>
+            <build>
+                <finalName>example</finalName>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.1.1</version>
+                        <configuration>
+                            <warSourceExcludes>resources/**</warSourceExcludes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

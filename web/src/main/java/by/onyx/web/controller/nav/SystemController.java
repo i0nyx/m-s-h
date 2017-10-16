@@ -1,4 +1,4 @@
-package by.onyx.web.controller;
+package by.onyx.web.controller.nav;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
