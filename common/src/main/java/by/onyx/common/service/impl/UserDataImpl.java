@@ -15,7 +15,7 @@ public class UserDataImpl implements UserData {
     private UserRepository repositories;
 
     public List<User> getAllUser() {
-        return null;
+        return repositories.findAll();
     }
 
     public User save(User user) {
